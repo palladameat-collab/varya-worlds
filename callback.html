@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Authorization — Varya Worlds</title>
+<meta name="tiktok-developers-site-verification" content="nJOAUaBxCbeZAzMoiAs0PWnYKWJIdZ2G">
+<style>
+  body { background: #0a0810; color: #d8d0c0; font-family: -apple-system, BlinkMacSystemFont, sans-serif; max-width: 700px; margin: 0 auto; padding: 80px 24px; line-height: 1.7; text-align: center; }
+  h1 { color: #dc2832; font-style: italic; font-size: 42px; margin-bottom: 30px; }
+  .box { background: #1a1218; border: 1px solid #5a3020; border-radius: 8px; padding: 24px; margin: 30px 0; word-break: break-all; font-family: monospace; font-size: 13px; color: #e6c378; }
+  .label { color: #8a7060; font-size: 12px; letter-spacing: 2px; margin-bottom: 8px; }
+  a { color: #d4a76a; text-decoration: none; padding: 12px 24px; border: 1px solid #5a3020; border-radius: 4px; display: inline-block; margin-top: 20px; }
+  a:hover { border-color: #dc2832; }
+  .ok { color: #6acc6a; font-size: 60px; }
+</style>
+</head>
+<body>
+  <div class="ok">✓</div>
+  <h1>Authorization Complete</h1>
+  <p>You can close this tab and return to the application.</p>
+  <div class="label">AUTHORIZATION CODE</div>
+  <div class="box" id="code">Loading…</div>
+  <a href="./">← Back to Varya Worlds</a>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const code = params.get('code');
+  const error = params.get('error');
+  const el = document.getElementById('code');
+  if (error) { el.textContent = 'Error: ' + error; el.style.color = '#ff6060'; }
+  else if (code) { el.textContent = code; }
+  else { el.textContent = '(no code in URL)'; }
+</script>
+</body>
+</html>
